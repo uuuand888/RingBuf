@@ -3,7 +3,7 @@
  * 
  * 
  */
- 
+ package src.v1;
  public class RingBuffer {
 	public static final int MAX=32;
 	private int rbuf[];
@@ -11,7 +11,7 @@
 	private int tail;
 	private int size;	
 	
-	RingBuffer(int size) {
+	public RingBuffer(int size) {
 		this.size = size;
 		head = 0;
 		tail = 0;

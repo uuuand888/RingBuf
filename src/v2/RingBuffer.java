@@ -5,7 +5,7 @@ public class RingBuffer {
 	private long head;
 	private long tail;
 	private long size;	
-	RingBuffer(long size) {
+	public RingBuffer(long size) {
 		this.size = size;
 		head = 0;
 		tail = 0;
