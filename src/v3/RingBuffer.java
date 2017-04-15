@@ -1,12 +1,13 @@
 /*
- * 通过&操作来判断数组下标。
+ * 通过Object来支持任意类型的队列。
+ * 
  * 
  */
-package src.v2;
 
+package src.v3;
 
 public class RingBuffer {
-	private int rbuf[];
+	private Object rbuf[];
 	private long head;
 	private long tail;
 	private long size;	
@@ -14,22 +15,22 @@ public class RingBuffer {
 		this.size = size;
 		head = 0;
 		tail = 0;
-		rbuf = new int[(int) size];
+		rbuf = new Object[(int) size];
 	}
-	public int set(int a) {
+	public Boolean set(Object a) {
 		if ((head-tail)==size) {
-			return -1;
+			return false;
 		} else {
 			rbuf[(int) (head&(size-1))]=a;
 			head++;
-			return 0;
+			return true;
 		}
 	}
-	public int get() {
+	public Object get() {
 		if (head==tail)
 			return -1;
-		int ret = rbuf[(int) (tail&(size-1))];
+		Object a = rbuf[(int) (tail&(size-1))];
 		tail++;
-		return ret;
+		return a;
 	}
 }
