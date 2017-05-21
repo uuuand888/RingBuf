@@ -27,7 +27,7 @@ public class RingBuffer<T> {
 //		System.out.println("RingBuffer length is:"+this.size);
 		head = 0;
 		tail = 0;
-		rbuf = (T[]) Array.newInstance(type, size);  
+		rbuf = (T[]) Array.newInstance(type, this.size);  
 	}
 	public Boolean set(T a) {
 		if ((head-tail)==size) {
